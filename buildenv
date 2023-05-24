@@ -7,7 +7,14 @@ export ZOPEN_CONFIGURE="skip"
 export ZOPEN_MAKE="make"
 export ZOPEN_MAKE_MINIMAL="yes"
 export ZOPEN_CHECK_OPTS="-i test"
-export ZOPEN_INSTALL_OPTS="install PREFIX=\$ZOPEN_INSTALL_DIR"
+export ZOPEN_INSTALL="zopen_install"
+
+zopen_init()
+{
+  # Go installs binaries, so create the bin dir as well
+  export GOBIN=$ZOPEN_INSTALL_DIR/bin
+  mkdir -p \$ZOPEN_INSTALL_DIR/bin
+}
 
 zopen_check_results()
 {
@@ -19,6 +26,11 @@ zopen_check_results()
   echo "actualFailures:0"
   echo "totalTests:1"
   echo "expectedFailures:0"
+}
+
+zopen_install()
+{
+  go install
 }
 
 zopen_append_to_env()
