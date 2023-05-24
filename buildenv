@@ -1,12 +1,12 @@
-export ZOPEN_GIT_URL="https://github.com/direnv/direnv.bit"
-export ZOPEN_GIT_DEPS="comp_goport make"
+export ZOPEN_GIT_URL="https://github.com/direnv/direnv.git"
+export ZOPEN_GIT_DEPS="comp_go make coreutils"
 export ZOPEN_TYPE="GIT"
 export ZOPEN_RUNTIME_DEPS="bash"
 
 export ZOPEN_CONFIGURE="skip"
 export ZOPEN_MAKE="make"
 export ZOPEN_MAKE_MINIMAL="yes"
-export ZOPEN_CHECK="skip"
+export ZOPEN_CHECK_OPTS="-i test"
 export ZOPEN_INSTALL="zopen_install"
 
 zopen_init()
@@ -28,11 +28,6 @@ zopen_check_results()
   echo "expectedFailures:0"
 }
 
-zopen_test()
-{
-  make test
-}
-
 zopen_install()
 {
   go install
@@ -45,12 +40,9 @@ zopen_append_to_env()
 
 zopen_append_to_setup()
 {
-   direnv_eval="$(eval "$(direnv hook bash)")"
-   echo "$direnv_eval" >> "~/.bashrc"
-   exec bash -l
 }
 
 zopen_get_version()
 {
-  $GOBIN/direnv --version
+  $ZOPEN_INSTALL_DIR/bin/direnv --version
 }
