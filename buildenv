@@ -2,6 +2,7 @@
 DIRENV_VERSION="2.34.0"
 
 export ZOPEN_BUILD_LINE="STABLE"
+export ZOPEN_CATEGORIES="development"
 export ZOPEN_DEV_URL="https://github.com/direnv/direnv.git"
 export ZOPEN_DEV_DEPS="comp_go make coreutils"
 export ZOPEN_STABLE_URL="https://github.com/direnv/direnv.git"
