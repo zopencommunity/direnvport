@@ -1,5 +1,5 @@
 # bump: direnv-version /DIRENV_VERSION="(.*)"/ https://github.com/direnv/direnv.git|semver:*
-DIRENV_VERSION="2.35.0"
+DIRENV_VERSION="2.36.0"
 
 export ZOPEN_BUILD_LINE="STABLE"
 export ZOPEN_CATEGORIES="development"
