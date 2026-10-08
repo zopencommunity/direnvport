@@ -1,5 +1,5 @@
 # bump: direnv-version /DIRENV_VERSION="(.*)"/ https://github.com/direnv/direnv.git|semver:*
-DIRENV_VERSION="2.37.1"
+DIRENV_VERSION="2.38.1"
 
 export ZOPEN_BUILD_LINE="STABLE"
 export ZOPEN_CATEGORIES="development"
@@ -19,6 +19,7 @@ export ZOPEN_INSTALL="zopen_install"
 zopen_init()
 {
   # Go installs binaries, so create the bin dir as well
+  export CGO_ENABLED=0
   export GOBIN=$ZOPEN_INSTALL_DIR/bin
   mkdir -p $ZOPEN_INSTALL_DIR/bin
   unset CC CXX
